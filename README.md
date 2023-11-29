@@ -58,9 +58,9 @@ In prototype 2, an antenna with higher gain was used and it showed much better W
 * https://www.amazon.com/dp/B08CR8FTL5?psc=1&ref=ppx_yo2ov_dt_b_product_details
 
 ### Install XIAO ESP32 S3 Sense
-After the necessqry wired were conencted, XIAO ESP32 Sense module placed at the rear side of the box car. The box car is not enough wide to put the module inside. 
+#### Prototype 1
 
-Prototype 1
+After the necessqry wired were conencted, XIAO ESP32 Sense module placed at the rear side of the box car. The box car is not enough wide to put the module inside. 
 XIAO ESP32 Sense module, a camera module and other components are placed in the frame of the box car.
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/a707a0a1-afe6-49d2-8045-bddec181d753" width="640">
@@ -69,7 +69,8 @@ XIAO ESP32 Sense module, a camera module and other components are placed in the 
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/1cdcb9f6-6c28-4157-b5a7-3e492f90ddd1" width="640">
 
-Prototype 2
+#### Prototype 2
+
 XIAO ESP32 Sense module, a camera module and other components are placed on the in the bsse of the box car. Then, a frame with wrapping is placed over.
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/25f444ef-bea4-4c5b-9ec4-b5934dd6a911" width="640">
@@ -90,6 +91,8 @@ Here is the frame with wrapping.
 
 
 ### External view
+#### Prototype 1
+
 Side View
 To cover the cut on the side of box car, I made a panel which was made from a beer can, and put it on the side of box car body.
 
@@ -103,7 +106,7 @@ Read View
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/153cfbc2-171b-4357-819b-eef7bef053fa" width="640">
 
-
+#### Prototype 1
 
 ## Software
 1. First, please install necessary libraries and set-up Arduino IDE following the Software Preparation section of the following tutrial.
