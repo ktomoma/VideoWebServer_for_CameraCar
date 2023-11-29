@@ -43,8 +43,6 @@ The additioinal wirings made in the system were.
 * DC input from 3.7V battery. Wires from battery case soldered to BAT+ and BAT- terinal.
 * An external LED connection. Connected to D1 and GND. The LED works as a headlight of the car.
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/a707a0a1-afe6-49d2-8045-bddec181d753" width="640">
-
 ### OV2640 Camera
 Camera itself is installed on the front panel of the box car. The flat cables goes to inside of the box car via an open hole. 
 The flat calbes is connected to camera module connector of the XIAO ESPS3 Sense.
@@ -56,9 +54,16 @@ I don't recommend to connect and disconnect the cable, place and peel off the sh
 ### Install XIAO ESP32 S3 Sense
 After the necessqry wired were conencted, XIAO ESP32 Sense module placed at the rear side of the box car. The box car is not enough wide to put the module inside. 
 
+Prototype 1
+XIAO ESP32 Sense module, a camera module and other components are placed in the frame of the box car.
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/a707a0a1-afe6-49d2-8045-bddec181d753" width="640">
+
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/49879dda-303b-4eda-9baf-38a9fd2318f6" width="640">
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/1cdcb9f6-6c28-4157-b5a7-3e492f90ddd1" width="640">
+
+Prototype 2
 
 ### External view
 Side View
