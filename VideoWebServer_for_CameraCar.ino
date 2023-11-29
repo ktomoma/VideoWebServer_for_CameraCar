@@ -1,4 +1,4 @@
-// VideoWebServer_for_CameraCar_v007.ino
+// VideoWebServer_for_CameraCar_v010.ino
 //  
 // Video Cam Car HTTP Server version
 // 2023/05/07 Kazuhiko Tomomatsu
@@ -28,7 +28,7 @@
 // 
 // 2023/06/12 Kazuhiko Tomomatsu
 // MIB OID Changed to 1.3.6.1.4.1.4998.3.1.x
-// Add 1.3.6.1.4.2.4998.3.1.1 for ssidId as read/write
+// Add 1.3.6.1.4.1.4998.3.1.1 for ssidId as read/write
 // Add 1.3.6.1.4.1.4998.3.1.2 for ssid
 // Add ssid change feature. 1.3.6.1.4.1.4498.3.1.2 changes ssid ID.
 // Changed Video Quality Default from 12 to 38.
@@ -38,6 +38,21 @@
 // 2023/09/22 Kazuhiko Tomomatsu
 // Add ssid automatic switch routine
 // VideoWebServer_for_CameraCar2_v007.ino
+//
+// 2023/11/03 
+// Changed HeadLightPin from D1 to D2. Camera Car 3 use D2 for HeadLight LED
+// Uncomment vflip lines as Camera Car 3 installed the OV2640 camera upside down again.
+// VideoWebServer_for_CameraCar3_v008.ino
+//
+// 2023/11/03 
+// Moved WiFi connection routine to a separate function
+// Added WiFi recovery routine
+// VideoWebServer_for_CameraCar3_v009.ino
+//
+// 2023/11/29
+// Added a RW MIB to reset WiFi
+// Set 1.3.6.1.4.1.4998.3.1.6 to 1 resets WiFi
+// VideoWebServer_for_CameraCar3_v010.ino
 
 #include "esp_camera.h"
 #include <WiFi.h>
@@ -57,6 +72,10 @@ int ssidId = 0;
 int prev_ssidId = 0;
 char* ssid[]     = {"ssid1", "ssid2"};   //input your wifi name
 char* password[] = {"password1", "password2"};   //input your wifi passwords
+//char* ssid     = "NWRR_WiFi";   //input your wifi name
+//char* password = "NWR@6d22";   //input your wifi passwords
+int WiFiReset = 0;  // Added 010. Reset WiFi if 1.
+
 
 // 2023/06/06 Added SNMP Agent
 WiFiUDP udp;
@@ -67,7 +86,7 @@ SNMPAgent snmp = SNMPAgent("public", "private");
 uint32_t tensOfMillisCounter = 0;
 uint32_t prev_tensOfMillisCounter = 0;
 uint32_t diff_tensOfMillisCounter = 0;
-std::string sysDescr = "Video Cam Car 2 - VideoWebServer_for_CameraCar2_v006.ino";
+std::string sysDescr = "Video Cam Car 3 - VideoWebServer_for_CameraCar3_v010.ino";
 char* sysContact;
 char* sysName;
 char* sysLocation;
@@ -86,6 +105,7 @@ ValueCallback* sysUpTimeOID;
 ValueCallback* sysDescrOID;
 ValueCallback* sysContactOID;
 TimestampCallback* sysUptimeOID;
+ValueCallback* WiFiResetOID;
 
 
 // Setup an SNMPTrap for later use
@@ -96,12 +116,11 @@ char* changingString;
 
 void startCameraServer();
 
-char* ssid_name;
 int WiFi_Sig_Strength;
 int frame_p_1000s; // number of frame per 1000 sec
 extern int HeadLight;
 extern int VideoQuality;
-int HeadLightPin = D1;
+int HeadLightPin = D2; // Changed for Video Cam Car 3 in 008;
 
 // Configures static IP address
 /*
@@ -121,8 +140,8 @@ void setup() {
 
   Serial.begin(115200);
   Serial.setDebugOutput(true);
-  Serial.println("VideoWebServer_for_CameraCar_v007.ino");
-  Serial.println("2023/06/12 Kazuhiko Tomomatsu");
+  Serial.println("VideoWebServer_for_CameraCar3_v010.ino");
+  Serial.println("2023/11/29 Kazuhiko Tomomatsu");
 // 2023/06/05 Added ESP chip information detection and display
   Serial.printf("This chip has %d cores\n", ESP.getChipCores());
   Serial.printf("Total heap: %d\n", ESP.getHeapSize());
@@ -136,33 +155,7 @@ void setup() {
 
   delay(1000);
 
-  // 2023/09/22 Add ssid automatic switchroutine
-  while (WiFi.status() != WL_CONNECTED) {
-    WiFi.begin(ssid[ssidId], password[ssidId]);
-    Serial.println("");
-    Serial.print("WiFi connecting to ");
-    Serial.println(ssid[ssidId]);
-
-    int i = 0;
-    while ((WiFi.status() != WL_CONNECTED) & (i<50)) {
-      delay(500);
-      Serial.print(WiFi.status());
-      i++;
-    }
-    if(i<50){
-      Serial.println("");
-      Serial.print("WiFi connected to ");
-      Serial.println(ssid[ssidId]);
-    }
-    else{
-      Serial.println("");
-      Serial.print("WiFi connecttion to ");
-      Serial.print(ssid[ssidId]);
-      Serial.println(" failed");
-      ssidId = 1 - ssidId;
-    }
-  }
-// 2023/09/22 End of Add ssid automatic switchroutine
+  WifiStart();
 
 // 2023/05/07 Added WiFi signal strength reporting
   Serial.print("Signal Strength (RSSI): ");
@@ -182,21 +175,21 @@ void setup() {
     stuff[2] = 24;
     stuff[3] = 67;
 
-    ssid_name = ssid[ssidId];
     ssidIdOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.1", &ssidId, true);
-    ssidOID = snmp.addReadOnlyStaticStringHandler(".1.3.6.1.4.1.4998.3.1.2", ssid_name); 
+    ssidOID = snmp.addReadOnlyStaticStringHandler(".1.3.6.1.4.1.4998.3.1.2", ssid[ssidId], true); 
     WiFi_Sig_StrengthOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.3", &WiFi_Sig_Strength);
     frame_p_1000sOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.4", &frame_p_1000s);
     HeadLightStatusOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.5", &HeadLight, true);
+    WiFiResetOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.6", &WiFiReset, true);
 
     // SNMPv2-MIB
     sysDescrOID = snmp.addReadOnlyStaticStringHandler(".1.3.6.1.2.1.1.1.0", sysDescr);    
     sysUpTimeOID = (TimestampCallback*)snmp.addTimestampHandler(".1.3.6.1.2.1.1.3.0", &tensOfMillisCounter);
     sysContact = (char*)malloc(25 * sizeof(char));
-    snprintf(sysContact, 25, "your_e-mail_address");
+    snprintf(sysContact, 25, "ktomoma@mac.com");
     sysContactOID = snmp.addReadWriteStringHandler(".1.3.6.1.2.1.1.4.0", &sysContact, 25, true);
     sysName = (char*)malloc(25 * sizeof(char));
-    snprintf(sysName, 25, "XIAO ESP32 S3 Sense");
+    snprintf(sysName, 25, "XIAO ESP32S3 Sense");
     snmp.addReadWriteStringHandler(".1.3.6.1.2.1.1.5.0", &sysName, 25, true);
     sysLocation = (char*)malloc(25 * sizeof(char));
     snprintf(sysLocation, 25, "Warrenville IL, USA");
@@ -257,8 +250,8 @@ void setup() {
 
 // Flip the image
 // Uncomment this if display image needs to be lotated 180 deg.
-//  s->set_vflip(s, 1);
-//  s->set_hmirror(s, 1);
+  s->set_vflip(s, 1);
+  s->set_hmirror(s, 1);
   
   startCameraServer();
   Serial.print("Camera Ready! Use 'http://");
@@ -284,7 +277,16 @@ void loop() {
   }
   digitalWrite(HeadLightPin, HeadLight);
 
-  // 2023/06/12 Add ssid change routine
+  // 2023/11/03 Add WiFi Recovery in 009
+  if (WiFi.status() != WL_CONNECTED){
+    Serial.print("Lost the connection to ");
+    Serial.print(ssid[ssidId]);
+    Serial.println(". Entering recovery.");
+    WifiStart();
+  }
+  // End of Add WiFi Recovery in 009
+
+  // 2023/06/12 Add ssid change routine in 006
   if(ssidId!=prev_ssidId) {
     if(ssidId<2){
       Serial.print("Switching Wifi to ");
@@ -292,8 +294,10 @@ void loop() {
       delay(5000);
       WiFi.disconnect();
       delay(5000);
-      WiFi.begin(ssid[ssidId], password[ssidId]);
       prev_ssidId = ssidId;
+      WifiStart();
+/**
+      WiFi.begin(ssid[ssidId], password[ssidId]);
       int i = 0;
       while ((WiFi.status() != WL_CONNECTED) & (i<100)) {
         delay(500);
@@ -312,13 +316,66 @@ void loop() {
         Serial.println(" failed");
         ssidId = 1 - ssidId;
       }
+**/
     }
     else{
       ssidId=prev_ssidId;
     }
   }
-  // End of 2023/06/12 Add ssid change routine
+  // End of 2023/06/12 Add ssid change routine in 006
+  // 2023/11/29 Add WiFi resetssid routine in 010
+  if(WiFiReset) {
+      WiFiReset = 0;
+      Serial.print("Reconnecting Wifi to ");
+      Serial.println(ssid[ssidId]);
+      delay(1000);
+      WiFi.disconnect();
+      delay(1000);
+      WifiStart();
+//      WiFi.begin(ssid[ssidId], password[ssidId]);
+  }
+  // End of 2023/11/29 Add WiFi resetssid routine in 010
 
   delay(100); // This 100 ms delay is requried for snmp.loop() not to take more CPU.
 }
+
+// Moved WiFi connection routine to a separate function in 009
+void WifiStart(){
+  // 2023/09/22 Add ssid automatic switchroutine
+  while (WiFi.status() != WL_CONNECTED) {
+    WiFi.begin(ssid[ssidId], password[ssidId]);
+    Serial.println("");
+    Serial.print("WiFi connecting to ");
+    Serial.println(ssid[ssidId]);
+
+    int i = 0;
+    while ((WiFi.status() != WL_CONNECTED) & (i<50)) {
+      delay(500);
+      Serial.print(WiFi.status());
+      i++;
+    }
+    if(i<50){
+      Serial.println("");
+      Serial.print("WiFi connected to ");
+      Serial.println(ssid[ssidId]);
+      ssidOID = snmp.addReadOnlyStaticStringHandler(".1.3.6.1.4.1.4998.3.1.2", ssid[ssidId], true); // Added in 010, but not working
+      snmp.sortHandlers(); // Added in 010, but not working
+    }
+    else{
+      Serial.println("");
+      Serial.print("WiFi connecttion to ");
+      Serial.print(ssid[ssidId]);
+      Serial.println(" failed");
+      ssidId = 1 - ssidId;
+    }
+  }
+// 2023/09/22 End of Add ssid automatic switchroutine
+
+// 2023/05/07 Added WiFi signal strength reporting
+  Serial.print("Signal Strength (RSSI): ");
+  WiFi_Sig_Strength = WiFi.RSSI();
+  Serial.println(WiFi_Sig_Strength);  /*Print WiFi signal strength*/
+// End of 2023/05/07 Addition
+}
+// End of Moved WiFi connection routine to a separate function in 009
 
