@@ -108,6 +108,19 @@ Read View
 
 #### Prototype 2
 
+Side View
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/fcf5838b-498d-46c8-bbc6-e64daa8c1777" width="640">
+
+Front View
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/83d9c860-b502-4d48-8bbe-c629c4ff793d" width="640">
+
+Rear View
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/fbf9573a-26ea-4dc7-a823-a04f5abd89c1" width="640">
+
+
 ## Software
 1. First, please install necessary libraries and set-up Arduino IDE following the Software Preparation section of the following tutrial.
 * https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/
