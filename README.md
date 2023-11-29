@@ -2,7 +2,7 @@
 ## Introduction
 I installed a front view camera in a N-Guage train which can transmit the video image over WiFi. Newly released small ESP32 S3 based module "XIAO ESP32 S3 Sense" made it available in N-Guage train which has has a very limited space to install necessary hardware. 
 Users are able to view the front view video image from a running train by Web server which runs on the ESP32 S3 processor over WiFi. The system is powered by a 3.7V battery installed in the car. 
-In this prototype, the system was installed in a very common box car which is 98 mm length. The car does not have a motor to run. Thus, the car has to be connected in front of an engine. 
+I made two prototypes. In these prototypes, the system was installed in a very common box car which is 98 mm length. The car does not have a motor to run. Thus, the car has to be connected in front of an engine. 
 
 ## Hardware
 ### Base Processor Module
@@ -48,8 +48,14 @@ Camera itself is installed on the front panel of the box car. The flat cables go
 The flat calbes is connected to camera module connector of the XIAO ESPS3 Sense.
 
 ### WiFi Antenna
-The antenna is not embedded to the processor module. The antenna is installed externally via tiny coax cable. To get the better WiFi connectivity, the antenna was installed on top ot the box car.
-I don't recommend to connect and disconnect the cable, place and peel off the sheet antenna many times. The WiFi connection will not be stable enough.
+The antenna is not embedded to the processor module. The antenna is installed externally via tiny coax cable. 
+
+In prototype 1, I used the antenna that came with XIAO ESP32 S3 Sense. To get the better WiFi connectivity, the antenna was installed on top ot the box car.
+I don't recommend to connect and disconnect the coax cable, place and peel off the sheet antenna many times. The WiFi connection will not be stable enough.
+
+In prototype 2, an antenna with higher gain was used and it showed much better WiFi connectivity, and video frame rate was dramatically increased as a result. The antenna used here is "2.4G/5G/5.8G Dual Band Omni PCB Antenna with IPX Connector". I strongly recommend to replace the antenna with higher gain. 
+
+* https://www.amazon.com/dp/B08CR8FTL5?psc=1&ref=ppx_yo2ov_dt_b_product_details
 
 ### Install XIAO ESP32 S3 Sense
 After the necessqry wired were conencted, XIAO ESP32 Sense module placed at the rear side of the box car. The box car is not enough wide to put the module inside. 
