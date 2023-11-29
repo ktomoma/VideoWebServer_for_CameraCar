@@ -111,11 +111,11 @@ Side View
 
 Front View
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/83d9c860-b502-4d48-8bbe-c629c4ff793d" width="640">
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/83d9c860-b502-4d48-8bbe-c629c4ff793d" width="480">
 
 Rear View
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/fbf9573a-26ea-4dc7-a823-a04f5abd89c1" width="640">
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/fbf9573a-26ea-4dc7-a823-a04f5abd89c1" width="480">
 
 
 ## Software
