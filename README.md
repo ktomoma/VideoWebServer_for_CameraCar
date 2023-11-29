@@ -87,9 +87,6 @@ Here is the frame with wrapping.
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/772a7b67-2b2d-4d76-b578-766506fa17b7" width="480">
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/31e3e0fc-16a1-4184-982b-24d6487307f8" width="480">
-
-
 ### External view
 #### Prototype 1
 
