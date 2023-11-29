@@ -64,8 +64,24 @@ XIAO ESP32 Sense module, a camera module and other components are placed in the 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/1cdcb9f6-6c28-4157-b5a7-3e492f90ddd1" width="640">
 
 Prototype 2
+XIAO ESP32 Sense module, a camera module and other components are placed on the in the bsse of the box car. Then, a frame with wrapping is placed over.
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/25f444ef-bea4-4c5b-9ec4-b5934dd6a911" width="640">
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/82c2d08d-4f60-41f0-86e9-ec2e4baa4830" width="640">
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/edfcb256-f47c-4fa8-98bd-e9aaa978e298" width="640">
+
+Then, a frame with wrapping is placed over.
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/ee989e54-2c66-41c1-a1a3-07f504cd4089" width="640">
+
+Here is the frame with wrapping.
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/772a7b67-2b2d-4d76-b578-766506fa17b7" width="640">
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/31e3e0fc-16a1-4184-982b-24d6487307f8" width="640">
+
 
 ### External view
 Side View
