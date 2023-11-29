@@ -106,7 +106,7 @@ Read View
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/153cfbc2-171b-4357-819b-eef7bef053fa" width="640">
 
-#### Prototype 1
+#### Prototype 2
 
 ## Software
 1. First, please install necessary libraries and set-up Arduino IDE following the Software Preparation section of the following tutrial.
