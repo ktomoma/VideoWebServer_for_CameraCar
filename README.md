@@ -65,9 +65,9 @@ XIAO ESP32 Sense module, a camera module and other components are placed in the 
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/a707a0a1-afe6-49d2-8045-bddec181d753" width="640">
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/49879dda-303b-4eda-9baf-38a9fd2318f6" width="640">
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/49879dda-303b-4eda-9baf-38a9fd2318f6" width="480">
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/1cdcb9f6-6c28-4157-b5a7-3e492f90ddd1" width="640">
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/1cdcb9f6-6c28-4157-b5a7-3e492f90ddd1" width="480">
 
 #### Prototype 2
 
@@ -75,9 +75,9 @@ XIAO ESP32 Sense module, a camera module and other components are placed on the 
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/25f444ef-bea4-4c5b-9ec4-b5934dd6a911" width="640">
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/82c2d08d-4f60-41f0-86e9-ec2e4baa4830" width="640">
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/82c2d08d-4f60-41f0-86e9-ec2e4baa4830" width="480">
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/edfcb256-f47c-4fa8-98bd-e9aaa978e298" width="640">
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/edfcb256-f47c-4fa8-98bd-e9aaa978e298" width="480">
 
 Then, a frame with wrapping is placed over.
 
@@ -85,9 +85,9 @@ Then, a frame with wrapping is placed over.
 
 Here is the frame with wrapping.
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/772a7b67-2b2d-4d76-b578-766506fa17b7" width="640">
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/772a7b67-2b2d-4d76-b578-766506fa17b7" width="480">
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/31e3e0fc-16a1-4184-982b-24d6487307f8" width="640">
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/31e3e0fc-16a1-4184-982b-24d6487307f8" width="480">
 
 
 ### External view
@@ -100,11 +100,11 @@ To cover the cut on the side of box car, I made a panel which was made from a be
 
 Front View
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/91616201-11c6-492a-839f-f078b38e25c7" width="640">
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/91616201-11c6-492a-839f-f078b38e25c7" width="480">
 
 Read View
 
-<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/153cfbc2-171b-4357-819b-eef7bef053fa" width="640">
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/153cfbc2-171b-4357-819b-eef7bef053fa" width="480">
 
 #### Prototype 2
 
