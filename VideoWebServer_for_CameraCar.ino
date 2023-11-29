@@ -72,8 +72,7 @@ int ssidId = 0;
 int prev_ssidId = 0;
 char* ssid[]     = {"ssid1", "ssid2"};   //input your wifi name
 char* password[] = {"password1", "password2"};   //input your wifi passwords
-//char* ssid     = "NWRR_WiFi";   //input your wifi name
-//char* password = "NWR@6d22";   //input your wifi passwords
+
 int WiFiReset = 0;  // Added 010. Reset WiFi if 1.
 
 
@@ -175,13 +174,6 @@ void setup() {
     stuff[2] = 24;
     stuff[3] = 67;
 
-    ssidIdOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.1", &ssidId, true);
-    ssidOID = snmp.addReadOnlyStaticStringHandler(".1.3.6.1.4.1.4998.3.1.2", ssid[ssidId], true); 
-    WiFi_Sig_StrengthOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.3", &WiFi_Sig_Strength);
-    frame_p_1000sOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.4", &frame_p_1000s);
-    HeadLightStatusOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.5", &HeadLight, true);
-    WiFiResetOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.6", &WiFiReset, true);
-
     // SNMPv2-MIB
     sysDescrOID = snmp.addReadOnlyStaticStringHandler(".1.3.6.1.2.1.1.1.0", sysDescr);    
     sysUpTimeOID = (TimestampCallback*)snmp.addTimestampHandler(".1.3.6.1.2.1.1.3.0", &tensOfMillisCounter);
@@ -194,6 +186,14 @@ void setup() {
     sysLocation = (char*)malloc(25 * sizeof(char));
     snprintf(sysLocation, 25, "Warrenville IL, USA");
     snmp.addReadWriteStringHandler(".1.3.6.1.2.1.1.6.0", &sysLocation, 25, true);
+
+    // Private MIB
+    ssidIdOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.1", &ssidId, true);
+    ssidOID = snmp.addReadOnlyStaticStringHandler(".1.3.6.1.4.1.4998.3.1.2", ssid[ssidId], true); 
+    WiFi_Sig_StrengthOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.3", &WiFi_Sig_Strength);
+    frame_p_1000sOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.4", &frame_p_1000s);
+    HeadLightStatusOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.5", &HeadLight, true);
+    WiFiResetOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.6", &WiFiReset, true);
 
 // End of 2023/06/06 Added SNMP Agent
 
@@ -358,8 +358,6 @@ void WifiStart(){
       Serial.println("");
       Serial.print("WiFi connected to ");
       Serial.println(ssid[ssidId]);
-      ssidOID = snmp.addReadOnlyStaticStringHandler(".1.3.6.1.4.1.4998.3.1.2", ssid[ssidId], true); // Added in 010, but not working
-      snmp.sortHandlers(); // Added in 010, but not working
     }
     else{
       Serial.println("");
