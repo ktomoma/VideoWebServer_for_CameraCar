@@ -71,7 +71,7 @@ XIAO ESP32 Sense module, a camera module and other components are placed in the 
 
 #### Prototype 2
 
-XIAO ESP32 Sense module, a camera module and other components are placed on the in the bsse of the box car. Then, a frame with wrapping is placed over.
+XIAO ESP32 Sense module, a camera module and other components are placed on the in the bsse of the box car.
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/25f444ef-bea4-4c5b-9ec4-b5934dd6a911" width="640">
 
