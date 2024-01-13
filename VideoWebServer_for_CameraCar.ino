@@ -1,4 +1,4 @@
-// VideoWebServer_for_CameraCar_v010.ino
+// VideoWebServer_for_CameraCar_v011.ino
 //  
 // Video Cam Car HTTP Server version
 // 2023/05/07 Kazuhiko Tomomatsu
@@ -53,6 +53,10 @@
 // Added a RW MIB to reset WiFi
 // Set 1.3.6.1.4.1.4998.3.1.6 to 1 resets WiFi
 // VideoWebServer_for_CameraCar3_v010.ino
+//
+// 2024/01/12
+// Removed delay(100) in the loop. Identified that this delay was causing the lower frame rate.
+// VideoWebServer_for_CameraCar3_v011.ino
 
 #include "esp_camera.h"
 #include <WiFi.h>
@@ -85,7 +89,7 @@ SNMPAgent snmp = SNMPAgent("public", "private");
 uint32_t tensOfMillisCounter = 0;
 uint32_t prev_tensOfMillisCounter = 0;
 uint32_t diff_tensOfMillisCounter = 0;
-std::string sysDescr = "Video Cam Car 3 - VideoWebServer_for_CameraCar3_v010.ino";
+std::string sysDescr = "Video Cam Car 3 - VideoWebServer_for_CameraCar3_v011.ino";
 char* sysContact;
 char* sysName;
 char* sysLocation;
@@ -139,8 +143,8 @@ void setup() {
 
   Serial.begin(115200);
   Serial.setDebugOutput(true);
-  Serial.println("VideoWebServer_for_CameraCar3_v010.ino");
-  Serial.println("2023/11/29 Kazuhiko Tomomatsu");
+  Serial.println("VideoWebServer_for_CameraCar3_v011.ino");
+  Serial.println("2024/01/12 Kazuhiko Tomomatsu");
 // 2023/06/05 Added ESP chip information detection and display
   Serial.printf("This chip has %d cores\n", ESP.getChipCores());
   Serial.printf("Total heap: %d\n", ESP.getHeapSize());
@@ -336,7 +340,7 @@ void loop() {
   }
   // End of 2023/11/29 Add WiFi resetssid routine in 010
 
-  delay(100); // This 100 ms delay is requried for snmp.loop() not to take more CPU.
+//  delay(100); // Delay removed in 011. Identified this delay caused the lower frame rate.
 }
 
 // Moved WiFi connection routine to a separate function in 009
