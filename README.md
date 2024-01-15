@@ -82,6 +82,9 @@ XIAO ESP32 Sense module, a camera module and other components are placed on the 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/cf3114ec-80e5-4cbc-9c5f-345a3c95f432" width="640">
 
 3) Solder cables from 3.7V Li-Ion battery + to Bat+, - to Bat-, Solder cable to + of LED. Place XIAO ESP32-S3 Sense module to the base board.
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/8ee68db9-af19-4b5e-a295-e358fd308beb" width="640">
+
 4) Place LED for a headlight.
 5) Place dummy connector (black in the picture with header pins. OV2640 camera will be placed here later.
 
