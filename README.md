@@ -180,7 +180,8 @@ The layout itself is still under building.
 ### SNMP MIB
 The system supports SNMP agent and has following MIB onjects.
 The default access password is public for SNMP GET and private for SNMP SET. They are mainly for a trouble shooting in case the video streaming does not come smoothly by checking WiFi signal strength and video frame rate.
-OID = .1.3.6.1.4.1.4998.3.1.1, ReadWrire, It reports SSID ID which is in use. If setting another value either 0 or 1, switch SSID.
+
+OID = .1.3.6.1.4.1.4998.3.1.1, ReadWrire, It reports SSID ID which is in use. Also, if setting another value either 0 or 1, switch SSID.
 
 OID = .1.3.6.1.4.1.4998.3.1.2, ReadOnly, It reports SSID Name which is in use. 
 
