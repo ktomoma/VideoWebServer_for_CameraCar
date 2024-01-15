@@ -94,7 +94,12 @@ XIAO ESP32 Sense module, a camera module and other components are placed on the 
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/26740ebe-884a-4b28-91fa-952a9b8b4d59" width="540">
 
+7) The flat cable of OV2640 camera module is connected to the camera module interface of XAIO ESP32-S3 Sense.
+
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/191c2c72-bd7e-4b4a-be23-fc850dfcc934" width="640">
+
+8) To place the battery holder, another circuit board was placed on top of the base board using header pins in between.
+9) Exteral antenna was placed on the battery holder.
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/25f444ef-bea4-4c5b-9ec4-b5934dd6a911" width="640">
 
