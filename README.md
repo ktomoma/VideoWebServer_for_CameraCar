@@ -107,11 +107,11 @@ XIAO ESP32 Sense module, a camera module and other components are placed on the 
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/edfcb256-f47c-4fa8-98bd-e9aaa978e298" width="480">
 
-Then, a frame with wrapping is placed over.
+10) Then, a frame with wrapping is placed over.
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/ee989e54-2c66-41c1-a1a3-07f504cd4089" width="640">
 
-Here is the frame with wrapping.
+11) Here is the frame with wrapping.
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/772a7b67-2b2d-4d76-b578-766506fa17b7" width="480">
 
