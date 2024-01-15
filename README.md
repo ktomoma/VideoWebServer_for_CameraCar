@@ -187,7 +187,7 @@ OID = .1.3.6.1.4.1.4998.3.1.2, ReadOnly, It reports SSID Name which is in use.
 
 OID = .1.3.6.1.4.1.4998.3.1.3, ReadOnly, It reports WiFi signal stlength. 
 
-OID = .1.3.6.1.4.1.4998.3.1.4, ReadOnly, It reports video frame rate in 1000th of the rate. 10000 representes 10 frames per sec.
+OID = .1.3.6.1.4.1.4998.3.1.4, ReadOnly, It reports video frame rate in 1000th of the rate. 10000 represents 10 frames per sec.
 
 OID = .1.3.6.1.4.1.4998.3.1.5, ReadWrire, It reports the status of head light LED, true (on) or false (off).
 
