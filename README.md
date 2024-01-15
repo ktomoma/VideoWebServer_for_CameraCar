@@ -86,9 +86,13 @@ XIAO ESP32 Sense module, a camera module and other components are placed on the 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/8ee68db9-af19-4b5e-a295-e358fd308beb" width="640">
 
 4) Place LED for a headlight.
-5) Place dummy connector (black in the picture with header pins. OV2640 camera will be placed here later.
+5) Place dummy connector (black in the picture with header pins. OV2640 camera will be placed here later. 
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/0d0f19e4-ccca-4a41-92fa-737d5f196bc4" width="640">
+
+6) Place OV2640 camera module with 120mm cable to dummy connector (it is gray color one in the picture at last.) The flat cable go underneath the gray dummy connector.
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/26740ebe-884a-4b28-91fa-952a9b8b4d59" width="540">
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/25f444ef-bea4-4c5b-9ec4-b5934dd6a911" width="640">
 
