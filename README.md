@@ -94,6 +94,8 @@ XIAO ESP32 Sense module, a camera module and other components are placed on the 
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/26740ebe-884a-4b28-91fa-952a9b8b4d59" width="540">
 
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/191c2c72-bd7e-4b4a-be23-fc850dfcc934" width="640">
+
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/25f444ef-bea4-4c5b-9ec4-b5934dd6a911" width="640">
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/82c2d08d-4f60-41f0-86e9-ec2e4baa4830" width="480">
