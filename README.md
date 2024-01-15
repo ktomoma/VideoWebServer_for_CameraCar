@@ -73,7 +73,13 @@ XIAO ESP32 Sense module, a camera module and other components are placed in the 
 
 XIAO ESP32 Sense module, a camera module and other components are placed on the in the bsse of the box car.
 
+1) Make a base board by cutting a universal soldering circuit board.
+
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/9a18d84b-f158-4eea-982b-84dbf32efc0a" width="640">
+
+2) Solder 2.54mm header pins to XIAO ESP32 Sense module to place the module to the base board.
+
+<img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/cf3114ec-80e5-4cbc-9c5f-345a3c95f432" width="640">
 
 <img src="https://github.com/ktomoma/VideoWebServer_for_CameraCar/assets/131932595/25f444ef-bea4-4c5b-9ec4-b5934dd6a911" width="640">
 
