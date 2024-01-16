@@ -147,13 +147,15 @@ Rear View
 
 
 ## Software
-1. First, please install necessary libraries and set-up Arduino IDE following the Software Preparation section of the following tutrial.
+### Preparation of IDE
+First, please install necessary libraries and set-up Arduino IDE following the Software Preparation section of the following tutrial.
 * https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/
 
-2. Download sketch
+### Customization to your WiFi network
+1. Download sketch
    Download the sketches from the repository here.
    
-4. Change WiFi SSID and Password
+2. Change WiFi SSID and Password
    
    Change WiFi SSID and Password to the ones in your network.
    
@@ -161,6 +163,15 @@ Rear View
    The softare switches the SSID automatically from one to another if the connectios is not establishsed in 50 tries.
 
    If only one SSID configuration is enough, please use same SSID name and passowrd for both.
+
+### Customizing Web Server HTML
+HTML code for the Camera Web Server exist as a binary code in index_ov2640_html_gz[] part of camera_html.
+The portion is a HEX format of binary code that original HTML is zipped via GZIP. The way to get the binary HEx format from text based HTML is introduced in the following site.
+* https://robotzero.one/esp32-cam-custom-html/
+
+Then, you need to change index_ov2640_html_gz_len to the newly created HTML. One byte of binary consist of 5 characters of HEX string including commma foe the separator. So, index_ov2640_html_gz_len becomes total string length devided by 5.
+
+
 
 ## Operation
 ### Basic Operation
