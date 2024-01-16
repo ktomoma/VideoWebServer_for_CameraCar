@@ -166,10 +166,14 @@ First, please install necessary libraries and set-up Arduino IDE following the S
 
 ### Customizing Web Server HTML
 HTML code for the Camera Web Server exist as a binary code in index_ov2640_html_gz[] part of camera_html.
-The portion is a HEX format of binary code that original HTML is zipped via GZIP. The way to get the binary HEx format from text based HTML is introduced in the following site.
+The portion is a HEX format of binary code that original HTML after zipped by GZIP. 
+The way to get the binary HEx format from text based HTML is introduced in the following site.
 * https://robotzero.one/esp32-cam-custom-html/
 
+CytberChef online tool introduced in above site makes the binary file in HEX format.
+
 Then, you need to change index_ov2640_html_gz_len to the newly created HTML. One byte of binary consist of 5 characters of HEX string including commma foe the separator. So, index_ov2640_html_gz_len becomes total string length devided by 5.
+
 
 
 
