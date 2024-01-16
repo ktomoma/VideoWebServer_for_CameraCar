@@ -174,8 +174,8 @@ CytberChef online tool introduced in above site makes the binary file in HEX for
 
 Then, you need to change index_ov2640_html_gz_len to the newly created HTML. One byte of binary consist of 5 characters of HEX string including commma foe the separator. So, index_ov2640_html_gz_len becomes total string length devided by 5.
 
-
-
+index_ov2640_headlight_html.txt in the repository is the original HTML used in my video Camera Car webserver.
+I added "Headlight button" on top of the menu.
 
 ## Operation
 ### Basic Operation
