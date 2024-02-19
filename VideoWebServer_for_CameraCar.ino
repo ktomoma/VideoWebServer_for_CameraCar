@@ -1,4 +1,4 @@
-// VideoWebServer_for_CameraCar_v011.ino
+// VideoWebServer_for_CameraCar_v012.ino
 //  
 // Video Cam Car HTTP Server version
 // 2023/05/07 Kazuhiko Tomomatsu
@@ -14,12 +14,12 @@
 // VideoWebServer_for_CameraCar_v003.ino
 //
 // 2023/06/07 Kazuhiko Tomomatsu
-// SNMP MIB 1.3.6.1.4.1.4998.2.1.1 returns WiFi_Sig_Strength
+// SNMP MIB 1.3.6.1.4.1.4998.2.1.1.0 returns WiFi_Sig_Strength
 // VideoWebServer_for_CameraCar_v004.ino
 //
 // 2023/06/07 Kazuhiko Tomomatsu
-// SNMP MIB 1.3.6.1.4.1.4998.2.1.2 returns frame_p_1000s
-// SNMP MIB 1.3.6.1.4.1.4998.2.1.3 returns HeadLightStatus
+// SNMP MIB 1.3.6.1.4.1.4998.2.1.2.0 returns frame_p_1000s
+// SNMP MIB 1.3.6.1.4.1.4998.2.1.3.0 returns HeadLightStatus
 // VideoWebServer_for_CameraCar_v005.ino
 //
 // 2023/06/10 Kazuhiko Tomomatsu
@@ -28,9 +28,9 @@
 // 
 // 2023/06/12 Kazuhiko Tomomatsu
 // MIB OID Changed to 1.3.6.1.4.1.4998.3.1.x
-// Add 1.3.6.1.4.1.4998.3.1.1 for ssidId as read/write
-// Add 1.3.6.1.4.1.4998.3.1.2 for ssid
-// Add ssid change feature. 1.3.6.1.4.1.4498.3.1.2 changes ssid ID.
+// Add 1.3.6.1.4.1.4998.3.1.1.0 for ssidId as read/write
+// Add 1.3.6.1.4.1.4998.3.1.2.0 for ssid
+// Add ssid change feature. 1.3.6.1.4.1.4498.3.1.2.0 changes ssid ID.
 // Changed Video Quality Default from 12 to 38.
 // Add VIdeo Quality reporting in the atetus report via serial every 10 sec.
 // VideoWebServer_for_CameraCar2_v006.ino
@@ -42,21 +42,25 @@
 // 2023/11/03 
 // Changed HeadLightPin from D1 to D2. Camera Car 3 use D2 for HeadLight LED
 // Uncomment vflip lines as Camera Car 3 installed the OV2640 camera upside down again.
-// VideoWebServer_for_CameraCar3_v008.ino
+// VideoWebServer_for_CameraCar2_v008.ino
 //
 // 2023/11/03 
 // Moved WiFi connection routine to a separate function
 // Added WiFi recovery routine
-// VideoWebServer_for_CameraCar3_v009.ino
+// VideoWebServer_for_CameraCar2_v009.ino
 //
 // 2023/11/29
 // Added a RW MIB to reset WiFi
-// Set 1.3.6.1.4.1.4998.3.1.6 to 1 resets WiFi
-// VideoWebServer_for_CameraCar3_v010.ino
+// Set 1.3.6.1.4.1.4998.3.1.6.0 to 1 resets WiFi
+// VideoWebServer_for_CameraCar2_v010.ino
 //
 // 2024/01/12
 // Removed delay(100) in the loop. Identified that this delay was causing the lower frame rate.
-// VideoWebServer_for_CameraCar3_v011.ino
+// VideoWebServer_for_CameraCar2_v011.ino
+//
+// 2024/02/18
+// Revised OID under 1.3.6.1.4.1.4998.3.1. Added .0 at the end of the OID, as they are not the objects in a table. 
+// VideoWebServer_for_CameraCar2_v012.ino
 
 #include "esp_camera.h"
 #include <WiFi.h>
@@ -192,12 +196,12 @@ void setup() {
     snmp.addReadWriteStringHandler(".1.3.6.1.2.1.1.6.0", &sysLocation, 25, true);
 
     // Private MIB
-    ssidIdOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.1", &ssidId, true);
-    ssidOID = snmp.addReadOnlyStaticStringHandler(".1.3.6.1.4.1.4998.3.1.2", ssid[ssidId], true); 
-    WiFi_Sig_StrengthOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.3", &WiFi_Sig_Strength);
-    frame_p_1000sOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.4", &frame_p_1000s);
-    HeadLightStatusOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.5", &HeadLight, true);
-    WiFiResetOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.6", &WiFiReset, true);
+    ssidIdOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.1.0", &ssidId, true);
+    ssidOID = snmp.addReadOnlyStaticStringHandler(".1.3.6.1.4.1.4998.3.1.2.0", ssid[ssidId], true); 
+    WiFi_Sig_StrengthOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.3.0", &WiFi_Sig_Strength);
+    frame_p_1000sOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.4.0", &frame_p_1000s);
+    HeadLightStatusOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.5.0", &HeadLight, true);
+    WiFiResetOID = snmp.addIntegerHandler(".1.3.6.1.4.1.4998.3.1.6.0", &WiFiReset, true);
 
 // End of 2023/06/06 Added SNMP Agent
 
