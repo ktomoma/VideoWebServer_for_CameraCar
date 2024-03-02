@@ -196,17 +196,17 @@ The layout itself is still under building.
 The system supports SNMP agent and has following MIB onjects.
 The default access password is public for SNMP GET and private for SNMP SET. They are mainly for a trouble shooting in case the video streaming does not come smoothly by checking WiFi signal strength and video frame rate.
 
-OID = .1.3.6.1.4.1.4998.3.1.1, ReadWrire, It reports SSID ID which is in use. Also, if setting another value either 0 or 1, switch SSID.
+OID = .1.3.6.1.4.1.4998.3.1.1.0, ReadWrire, It reports SSID ID which is in use. Also, if setting another value either 0 or 1, switch SSID.
 
-OID = .1.3.6.1.4.1.4998.3.1.2, ReadOnly, It reports SSID Name which is in use. 
+OID = .1.3.6.1.4.1.4998.3.1.2.0, ReadOnly, It reports SSID Name which is in use. 
 
-OID = .1.3.6.1.4.1.4998.3.1.3, ReadOnly, It reports WiFi signal stlength. 
+OID = .1.3.6.1.4.1.4998.3.1.3.0, ReadOnly, It reports WiFi signal stlength. 
 
-OID = .1.3.6.1.4.1.4998.3.1.4, ReadOnly, It reports video frame rate in 1000th of the rate. 10000 represents 10 frames per sec.
+OID = .1.3.6.1.4.1.4998.3.1.4.0, ReadOnly, It reports video frame rate in 1000th of the rate. 10000 represents 10 frames per sec.
 
-OID = .1.3.6.1.4.1.4998.3.1.5, ReadWrire, It reports the status of head light LED, true (on) or false (off).
+OID = .1.3.6.1.4.1.4998.3.1.5.0, ReadWrire, It reports the status of head light LED, true (on) or false (off).
 
-OID = .1.3.6.1.4.1.4998.3.1.6, ReadWrire, If setting 1, it resets WiFi with same SSID.
+OID = .1.3.6.1.4.1.4998.3.1.6.0, ReadWrire, If setting 1, it resets WiFi with same SSID.
 
 
 Eaxmple output.
@@ -223,23 +223,21 @@ SNMPv2-MIB::sysName.0 = STRING: XIAO ESP32S3 Sense
 
 SNMPv2-MIB::sysLocation.0 = STRING: Warrenville IL, USA
 
-SNMPv2-SMI::enterprises.4998.3.1.1 = INTEGER: 0
+SNMPv2-SMI::enterprises.4998.3.1.1.0 = INTEGER: 0
 
-SNMPv2-SMI::enterprises.4998.3.1.2 = STRING: "ssid1"
+SNMPv2-SMI::enterprises.4998.3.1.2.0 = STRING: "ssid1"
 
-SNMPv2-SMI::enterprises.4998.3.1.3 = INTEGER: -55
+SNMPv2-SMI::enterprises.4998.3.1.3.0 = INTEGER: -55
 
-SNMPv2-SMI::enterprises.4998.3.1.4 = INTEGER: 10416
+SNMPv2-SMI::enterprises.4998.3.1.4.0 = INTEGER: 10416
 
-SNMPv2-SMI::enterprises.4998.3.1.5 = INTEGER: 0
+SNMPv2-SMI::enterprises.4998.3.1.5.0 = INTEGER: 0
 
-SNMPv2-SMI::enterprises.4998.3.1.6 = INTEGER: 0
-
-SNMPv2-SMI::enterprises.4998.3.1.6 = No more variables left in this MIB View (It is past the end of the MIB tree)
+SNMPv2-SMI::enterprises.4998.3.1.6.0 = INTEGER: 0
 
 
 ### Serial Console Output
 There is serial console output for debugging purpose. If the system is faling to connect WiFi, the serial console output reports the status of WiFi connection.
 
 ### Known Issues
-MIB for SSID Name (OID = .1.3.6.1.4.1.4998.3.1.2) is not updated when SSID is changed by setting another SSID ID in OID = .1.3.6.1.4.1.4998.3.1.1.
+MIB for SSID Name (OID = .1.3.6.1.4.1.4998.3.1.2.0) is not updated when SSID is changed by setting another SSID ID in OID = .1.3.6.1.4.1.4998.3.1.1.
