@@ -180,7 +180,7 @@ I added "Headlight button" on top of the menu.
 ## Operation
 ### Basic Operation
 The Web Server access uses the video streaming feature by SpeedStudio which is introduced in the tutorial page of XIAO ESP32S3 Sense Camera shown in Base Processor Module section.
-The operation is easy. Just access to http://<IP address> via an Web Brower and click "Tuen On Video" on the bottom of the menu.
+The operation is easy. Just access to http://<"IP address"> via an Web Brower and click "Tuen On Video" on the bottom of the menu.
 The camera configuration is available through the bottuns and windows in the menue. They are same as the original example VideoWebServer application by SpeedStudio.
 One modification is to add Head Light button on top. It turns on/off the head light LED.
 
